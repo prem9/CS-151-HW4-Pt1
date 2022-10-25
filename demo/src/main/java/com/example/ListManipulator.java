@@ -56,11 +56,30 @@ public class ListManipulator
     }
     public void table(ArrayList<Integer> myLst)
     {
+            myLst = sort(myLst, true);
+            Integer frequency = 0, previous = 0;
+            Boolean first = true;
+            if (myLst.size() == 0)  {
+                return;
+            }
+            for(Integer val: myLst)
+            {
+                if (first){
+                    first = false;
+                    previous = val;
+                }
+                if (val == previous) {
+                    frequency +=1;
+                } else {
+                    System.out.printf(" %d : %d\n", previous, frequency);
+                    previous = val;
+                    frequency = 1;
+                }
 
-    }
-    public static void main( String[] args )
-    {
-        System.out.println( "Hello World!" );
+            }
+            System.out.printf(" %d : %d\n", previous, frequency);
+            
+
     }
     
 }
